@@ -16,6 +16,23 @@ The project can be run by executing the following command:
 go run .\src\main.go
 ```
 
+### Containerized Program Execution
+
+- Build the Docker image using the following command:
+
+```javascript
+docker build -t ecro:1.0 .
+```
+
+- Push the Docker image to a Docker registry such as Docker Hub or leave it on your local machine
+
+- Run the following command to apply the kubernetes deployment.yaml to a kubernetes cluster:
+
+```javascript
+kubectl apply -f deployment.yaml
+```
+
+
 ### static folder
 
 The "static" folder of the Employee Commute Route Optimizer project contains detailed diagrams that clearly illustrate the architecture and design of the project. These diagrams serve as an essential resource for developers who want to understand the project's structure, workflow, and logic. They provide a high-level view of the project's components, their relationships, and the data flow between them. By consulting these diagrams, developers can gain a deep understanding of the project's design and quickly identify potential issues or areas for improvement.
