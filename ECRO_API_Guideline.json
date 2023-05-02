@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "213482aa-8b08-488e-bb3f-7b0045c8a161",
+		"name": "Employee Commute Route Optimizer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9501436"
+	},
+	"item": [
+		{
+			"name": "localhost:8000/getTheShortestLocationHandler",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mode\": [\r\n        \"fastest\",\r\n        \"car\",\r\n        \"traffic:enabled\"\r\n    ],\r\n    \"waypoint\": \"geo!37.773972,-122.431297\",\r\n    \"waypoints\": [\"geo!37.791609,-122.417506\",\"geo!38.791609,-123.417506\",\"geo!39.791609,-121.417506\"],\r\n    \"routematch\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/getTheShortestLocationHandler",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"getTheShortestLocationHandler"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8000/getRouteData",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mode\": [\r\n        \"fastest\",\r\n        \"car\",\r\n        \"traffic:enabled\"\r\n    ],\r\n    \"waypoint0\": \"geo!37.773972,-122.431297\",\r\n    \"waypoint1\": \"geo!37.791609,-122.417506\",\r\n    \"routematch\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/getRouteData",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"getRouteData"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecro-deployment
+  labels:
+    app: ecro
+spec:
+  replicas: 3 # Number of replicas you want to run
+  selector:
+    matchLabels:
+      app: ecro
+  template:
+    metadata:
+      labels:
+        app: ecro
+    spec:
+      containers:
+      - name: ecro
+        image: ecro:1.0 # Use the name of the Docker image you built and pushed to Docker Hub or your own registry
+        ports:
+        - containerPort: 8000 # The port your app listens on
+        command: ["/main"] # The command to run your app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecro-service
+spec:
+  selector:
+    app: ecro
+  ports:
+    - protocol: TCP
+      port: 80 # The port your app will be exposed on
+      targetPort: 8000 # The port your app listens on
+  type: LoadBalancer # The type of the service, LoadBalancer will provision a cloud load balancer for your app
